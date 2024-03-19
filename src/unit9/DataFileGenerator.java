@@ -41,7 +41,12 @@ public class DataFileGenerator {
 
         // Generate First and Last Names
         for (int i = 0; i < recordCount; i++) {
-            firstNames[i] = allFirstNames[rand.nextInt(allFirstNames.length)];
+            String temp = allFirstNames[rand.nextInt(allFirstNames.length)];
+            int lastIndex = temp.lastIndexOf(' ');
+            if (lastIndex > 0)
+                firstNames[i] = temp.substring(0,temp.lastIndexOf(' '));
+            else
+                firstNames[i] = temp;
             lastNames[i] = allLastNames[rand.nextInt(allLastNames.length)];
         }
 
