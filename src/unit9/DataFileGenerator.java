@@ -53,7 +53,7 @@ public class DataFileGenerator {
         // Build Grade String
         String nameFormatString = "%10s %15s     ";
         String gradeFormatString = "%4d";
-
+        
         // Serialize Data to File
         try {
             FileWriter fw = new FileWriter(outFile);
