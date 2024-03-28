@@ -15,11 +15,26 @@ public class RectangleFromSimpleGeometricObject extends SimpleGeometricObject{
 
     public RectangleFromSimpleGeometricObject(
             double width, double height, String color, boolean filled) {
+        //super("red", true);
         this.width = width;
         this.height = height;
         setColor(color);
         setFilled(filled);
     }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof RectangleFromSimpleGeometricObject) {
+            RectangleFromSimpleGeometricObject rect = (RectangleFromSimpleGeometricObject)obj;
+            if (this.width == rect.width &&
+                    this.height == rect.height && getColor() == rect.getColor() &&
+                    isFilled() == rect.isFilled())
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    } // anything wrong here? any simplification?
 
     /** Return width */
     public double getWidth() {
