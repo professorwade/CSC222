@@ -1,9 +1,11 @@
 package Unit11;
 
-public class SimpleGeometricObject {
+public abstract class SimpleGeometricObject {
     private String color = "white";
     private boolean filled;
     private java.util.Date dateCreated;
+
+    abstract String getName();
 
     /** Construct a default geometric object */
     public SimpleGeometricObject() {
@@ -17,6 +19,9 @@ public class SimpleGeometricObject {
         this.color = color;
         this.filled = filled;
     }
+
+    abstract public double getArea();
+    abstract public double getPerimeter();
 
     /** Return color */
     public String getColor() {

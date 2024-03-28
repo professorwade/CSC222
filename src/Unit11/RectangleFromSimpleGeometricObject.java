@@ -7,6 +7,8 @@ public class RectangleFromSimpleGeometricObject extends SimpleGeometricObject{
     public RectangleFromSimpleGeometricObject() {
     }
 
+    public String getName() { return "rectangle"; }
+
     public RectangleFromSimpleGeometricObject(
             double width, double height) {
         this.width = width;
@@ -22,15 +24,11 @@ public class RectangleFromSimpleGeometricObject extends SimpleGeometricObject{
         setFilled(filled);
     }
 
-    public boolean equals(Object obj) {
-        if (obj instanceof RectangleFromSimpleGeometricObject) {
-            RectangleFromSimpleGeometricObject rect = (RectangleFromSimpleGeometricObject)obj;
-            if (this.width == rect.width &&
-                    this.height == rect.height && getColor() == rect.getColor() &&
-                    isFilled() == rect.isFilled())
-                return true;
-            else
-                return false;
+    public boolean equals(final Object obj) {
+        if (obj instanceof RectangleFromSimpleGeometricObject rect) {
+            return (this.width == rect.width &&
+                    this.height == rect.height && getColor().equals(rect.getColor()) &&
+                    isFilled() == rect.isFilled());
         }
         else
             return false;

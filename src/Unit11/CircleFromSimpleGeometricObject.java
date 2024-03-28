@@ -17,6 +17,8 @@ public class CircleFromSimpleGeometricObject extends SimpleGeometricObject {
         setFilled(filled);
     }
 
+    public String getName() { return "circle"; }
+
     /** Return radius */
     public double getRadius() {
         return radius;

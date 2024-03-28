@@ -32,16 +32,14 @@ public class TestCircleRectangle {
             System.out.println(so.toString());
         }
 
-        System.out.println("Test Dynamic Cast");
+        System.out.println("Test Area");
         for (SimpleGeometricObject so : objects) {
-            if (so instanceof CircleFromSimpleGeometricObject) {
-                CircleFromSimpleGeometricObject c = (CircleFromSimpleGeometricObject) so;
-                System.out.println("The area of the circle is: " + c.getArea());
-            }
-            else if (so instanceof RectangleFromSimpleGeometricObject) {
-                RectangleFromSimpleGeometricObject r = (RectangleFromSimpleGeometricObject) so;
-                System.out.println("The area of the rectangle is: " + r.getArea());
-            }
+            System.out.println("The area of the " + so.getName() + " is: " + so.getArea());
+        }
+
+        System.out.println("Test Perimeter");
+        for (SimpleGeometricObject so : objects) {
+            System.out.println("The perimeter of the " + so.getName() + " is: " + so.getPerimeter());
         }
 
     }
