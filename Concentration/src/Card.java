@@ -1,10 +1,12 @@
 public class Card {
     private String value;
     private String suit;
+    public boolean faceUp;
 
     Card(String suit, String value) {
         this.value = value;
         this.suit = suit;
+        this.faceUp = false; // face down by default
     }
 
     @Override

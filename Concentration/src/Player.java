@@ -1,5 +1,13 @@
 public class Player {
     private int score;
+    private int highScore;
+    private String name;
+
+    Player(String n) {
+        score = 0;
+        highScore = 0;
+        name = n;
+    }
 
     /**
      * Get players high score
@@ -29,8 +37,6 @@ public class Player {
         this.score = score;
     }
 
-    private int highScore;
-
     public String getName() {
         return name;
     }
@@ -38,7 +44,4 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-
-    private String name;
-
 }
