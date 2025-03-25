@@ -3,8 +3,8 @@ public class Player {
     private int highScore;
     private String name;
 
-    Player(String n) {
-        score = 0;
+    Player(String n, int boardSize) {
+        score = boardSize * boardSize;
         highScore = 0;
         name = n;
     }
@@ -43,5 +43,13 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void increaseScore() {
+        score++;
+    }
+
+    public void decreaseScore() {
+        score--;
     }
 }

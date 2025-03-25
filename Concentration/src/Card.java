@@ -2,11 +2,13 @@ public class Card {
     private String value;
     private String suit;
     public boolean faceUp;
+    public boolean matched;
 
     Card(String suit, String value) {
         this.value = value;
         this.suit = suit;
         this.faceUp = false; // face down by default
+        this.matched = false;
     }
 
     @Override

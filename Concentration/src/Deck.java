@@ -26,6 +26,17 @@ public class Deck {
         Collections.shuffle(cards); // shuffle deck
     }
 
+    public Card getValueMatch(String value) {
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getValue().equals(value)) {
+                Card c = cards.remove(i);
+                discards.add(c);
+                return c;
+            }
+        }
+        throw new RuntimeException("Unable to find matching value");
+    }
+
     /**
      *
      */
