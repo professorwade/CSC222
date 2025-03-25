@@ -1,6 +1,6 @@
 public class Card {
-    private String value;
-    private String suit;
+    private final String value;
+    private final String suit;
     public boolean faceUp;
     public boolean matched;
 

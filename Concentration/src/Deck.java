@@ -3,12 +3,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
-    private String[] values = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
+    private final String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
+    private final String[] values = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
         "Jack","Queen","King","Ace"};
 
-    private List<Card> cards = new ArrayList<>();
-    private List<Card> discards = new ArrayList<>();
+    private final List<Card> cards = new ArrayList<>();
+    private final List<Card> discards = new ArrayList<>();
     public final int SIZE = 52;
 
     /**
@@ -46,14 +46,7 @@ public class Deck {
 
     /**
      *
-     */
-    public void shuffle() {
-        buildDeck();
-    }
-
-    /**
-     *
-     * @return
+     * @return Card Dealt
      */
     public Card dealCard() {
         Card c = cards.removeFirst();

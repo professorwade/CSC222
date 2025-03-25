@@ -1,20 +1,15 @@
-
-import javax.swing.*;
-import java.util.Random;
-import java.util.Scanner;
-
 public class ConcentrationGame {
 
-    private Player player;
-    private Card[][] board;
+    private final Player player;
+    private final Card[][] board;
     private final int BOARD_SIZE = 4;
-    private Deck deck;
-    public enum GameState {GUESS_AGAIN, GAME_OVER};
+
+    public enum GameState {GUESS_AGAIN, GAME_OVER}
 
     ConcentrationGame(String name) {
         player = new Player(name, BOARD_SIZE);
         board = new Card[BOARD_SIZE][BOARD_SIZE];
-        deck = new Deck();
+        Deck deck = new Deck();
         // randomly deal out half the board
 
         while (!allPlaced()) {
@@ -46,6 +41,7 @@ public class ConcentrationGame {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if (board[i][j] == null) {
                     allPlaced = false;
+                    break;
                 }
             }
         }
@@ -85,9 +81,7 @@ public class ConcentrationGame {
     private String padLeft(String txt) {
         StringBuilder sb = new StringBuilder();
         int totalPad = 8 - txt.length();
-        for (int i = 0; i < totalPad / 2; i++) {
-            sb.append(" ");
-        }
+        sb.append(" ".repeat(Math.max(0, totalPad / 2)));
         return sb.toString();
     }
 
@@ -95,9 +89,7 @@ public class ConcentrationGame {
         int mod = (txt.length() % 2 == 0 ? 0 : 1);
         StringBuilder sb = new StringBuilder();
         int totalPad = 8 - txt.length();
-        for (int i = 0; i < totalPad / 2 + mod; i++) {
-            sb.append(" ");
-        }
+        sb.append(" ".repeat(Math.max(0, totalPad / 2 + mod)));
         return sb.toString();
     }
 
@@ -177,7 +169,7 @@ public class ConcentrationGame {
                     sb2.append(" |         |");
                 }
             }
-            System.out.println(sb.toString() + "\n" + sb2.toString());
+            System.out.println(sb + "\n" + sb2);
             System.out.println(" |         | |         | |         | |         |");
             System.out.println(" ----------- ----------- ----------- -----------");
         }
