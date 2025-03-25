@@ -11,7 +11,7 @@ public class Player {
 
     /**
      * Get players high score
-     * @return highscore
+     * @return Players High Score
      */
     public int getHighScore() {
         return highScore;
