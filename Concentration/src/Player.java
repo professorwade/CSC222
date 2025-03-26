@@ -7,6 +7,7 @@ public class Player {
         score = boardSize * boardSize;
         highScore = 0;
         name = n;
+        //TODO: Add code to check for existing name record and load if present
     }
 
     /**

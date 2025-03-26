@@ -4,7 +4,7 @@ public class ConcentrationGame {
     private final Card[][] board;
     private final int BOARD_SIZE = 4;
 
-    public enum GameState {GUESS_AGAIN, GAME_OVER}
+    public enum GameState {GUESS_AGAIN, GAME_OVER, RE_GUESS }
 
     ConcentrationGame(String name) {
         player = new Player(name, BOARD_SIZE);
@@ -104,6 +104,10 @@ public class ConcentrationGame {
     public int getScore() {
         return player.getScore();
     }
+    public int getHighScore() { return player.getHighScore(); }
+    public void setScore(int val) { player.setScore(val); }
+    public void setHighScore(int val) { player.setHighScore(val);}
+    public String getName() { return player.getName(); }
 
     public void setVisible(int r, int c, boolean visibility) {
         board[r][c].faceUp = visibility;
@@ -117,11 +121,19 @@ public class ConcentrationGame {
         return GameState.GUESS_AGAIN;
     }
 
+    /**
+     * Enters two cards on the board to guess match
+     * @param r1 - Row for Card 1
+     * @param c1 - Column for Card 1
+     * @param r2 - Row for Card 2
+     * @param c2 - Column for Card 2
+     * @return - GameState indicating the player can guess again or that the game is over
+     */
     public GameState setGuess(int r1, int c1, int r2, int c2) {
         GameState state = GameState.GUESS_AGAIN;
         if (board[r1 - 1][c1 - 1].matched || board[r2 - 1][c2 - 1].matched) {
             System.out.println("Don't waste a guess on a matched card!");
-            return state;
+            return GameState.RE_GUESS;
         }
 
         board[r1 - 1][c1 - 1].faceUp = true;

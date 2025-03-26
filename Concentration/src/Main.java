@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        ConcentrationGame game = new ConcentrationGame("player");
         Scanner scan = new Scanner(System.in);
+        System.out.print("Welcome to Concentration! What is your name? ");
+        String name = scan.next();
+        System.out.println("Welcome " + name);
+        ConcentrationGame game = new ConcentrationGame(name);
 
         // game loop
         while (!game.isSolved()) {
@@ -15,6 +18,8 @@ public class Main {
             int row2 = scan.nextInt();
             int col2 = scan.nextInt();
             state = game.setGuess(row1, col1, row2, col2);
+            if (state == ConcentrationGame.GameState.RE_GUESS)
+                continue;
             if (state == ConcentrationGame.GameState.GAME_OVER)
                 break; // terminate game
             System.out.print("Want a peek for a point? Y or N");
@@ -25,6 +30,14 @@ public class Main {
                     break;
             }
 
+        }
+        if (game.isSolved()) {
+            System.out.println("Congratulations! " + game.getName() +
+                    "You solved the board. Your final score is " + game.getScore());
+            if (game.getHighScore() < game.getScore()) {
+                System.out.println("You have a new high score!");
+                game.setHighScore(game.getScore());
+            }
         }
     }
 }
