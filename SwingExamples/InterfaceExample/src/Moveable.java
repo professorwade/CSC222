@@ -1,5 +1,4 @@
 public interface Moveable {
-    void moveRight(int step, int xmax, int ymax) {
-
-    }
+    boolean moveRight(int step, int xmax);
+    boolean moveLeft(int step, int xmin);
 }
