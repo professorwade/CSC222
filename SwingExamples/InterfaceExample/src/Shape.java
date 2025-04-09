@@ -1,3 +1,5 @@
+package src;
+
 import java.awt.*;
 
 public abstract class Shape implements Moveable {
