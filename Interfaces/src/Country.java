@@ -1,3 +1,5 @@
+package src;
+
 /**
  A country with a name and area.
  */

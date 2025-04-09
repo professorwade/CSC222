@@ -1,3 +1,4 @@
+package src;
 /**
  Describes any class whose objects can be moved.
  */

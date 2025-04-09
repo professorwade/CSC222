@@ -1,3 +1,4 @@
+package src;
 public class Segment /* Your code goes here
 
 The Segment class describes a segment of the real line with a given start and end point. Have the class implement the

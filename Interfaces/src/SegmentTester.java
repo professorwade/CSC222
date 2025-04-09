@@ -1,3 +1,4 @@
+package src;
 public class SegmentTester
 {
     public static void main(String[] args)

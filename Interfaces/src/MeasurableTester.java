@@ -1,6 +1,7 @@
+package src;
 import java.util.Arrays;
 
-public class Tester
+public class MeasurableTester
 {
     public static void main(String[] args)
     {
