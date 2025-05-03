@@ -11,12 +11,12 @@ public class Main {
             System.out.print("Enter forecast location latitude (0 to quit): ");
             double lat = s.nextDouble();
             while (lat != 0) {
-                System.out.println("\nEnter forecast location longitude: ");
+                System.out.print("Enter forecast location longitude: ");
                 double lng = s.nextDouble();
                 String url = "https://api.weather.gov/points/" + lat+ "," + lng;
                 String resp = fr.getForecast(url);
                 System.out.println(resp);
-                Printable printable = (Printable) fr;
+                Printable printable = fr;
                 PdfGenerator pw = new PdfGenerator();
                 pw.createPdf(printable.getFileName(), printable.getText());
                 System.out.print("Enter forecast location latitude (0 to quit): ");

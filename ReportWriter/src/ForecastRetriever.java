@@ -6,7 +6,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.io.IOException;
 
 public class ForecastRetriever implements Printable
 {
@@ -18,8 +17,8 @@ public class ForecastRetriever implements Printable
         StringBuilder sb = new StringBuilder();
         JSONObject properties = jsonObject.getJSONObject("properties")
                 .getJSONObject("relativeLocation").getJSONObject("properties");
-        sb.append("Forecast for: " + properties.getString("city") +
-                ", " + properties.getString("state") + "\n\n");
+        sb.append("Forecast for: ").append(properties.getString("city")).append(", ")
+                .append(properties.getString("state")).append("\n\n");
         properties = jsonObject.getJSONObject("properties"); // back up tree
         String forecastURL = properties.getString("forecast");
         resp = getQuery(forecastURL);
@@ -27,7 +26,8 @@ public class ForecastRetriever implements Printable
         JSONArray periods = jsonObject.getJSONArray("periods");
         for (int i = 0; i < periods.length(); i++) {
             JSONObject jobj = periods.getJSONObject(i);
-            sb.append(jobj.getString("name") + " : " + jobj.getString("shortForecast") + "\n");
+            sb.append(jobj.getString("name")).append(" : ")
+                    .append(jobj.getString("shortForecast")).append("\n");
         }
         lastForecast = sb.toString();
         return sb.toString();
@@ -45,23 +45,23 @@ public class ForecastRetriever implements Printable
 
         // Send the request and get the response
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-
         return response.body();
     }
 
-    @Override
     /**
      * Implements the Printable interface to return the text of the last forecast looked up
+     * @return String of text to be printed
      */
+    @Override
     public String getText() {
         return lastForecast; // returns the text of the last forecast looked up
     }
 
-    @Override
     /**
      * Implements the Printable interface to return a suitable filename for the file to be saved as
+     * @return string of filename
      */
+    @Override
     public String getFileName() {
         String[] lines = lastForecast.split("\n");
         String fileName = lines[0].split(":")[1].strip();

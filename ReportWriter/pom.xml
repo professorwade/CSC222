@@ -5,6 +5,7 @@
     <version>1</version>
     <properties>
         <itext.version>8.0.3</itext.version>
+        <slf4j.version>2.0.17</slf4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -19,9 +20,14 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>bouncy-castle-adapter</artifactId>
-            <version>${itext.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
     <build>

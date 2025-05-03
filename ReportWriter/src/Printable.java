@@ -1,3 +1,6 @@
+/**
+ * Simple Interface Definition to retrieve text of an object and save it to a suggested filename
+ */
 interface Printable {
 
     /**
