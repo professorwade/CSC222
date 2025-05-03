@@ -10,7 +10,7 @@ public class PdfGenerator {
      * Very Simple Method to generate a PDF file of the string passed in with a file name passed in
      * @param fileName - what to name the pdf document
      * @param data - data to be put in the pdf document
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException - if file is unable to be created
      */
     public void createPdf(String fileName, String data) throws FileNotFoundException {
         PdfWriter writer = new PdfWriter(fileName);

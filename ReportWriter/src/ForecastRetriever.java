@@ -25,9 +25,9 @@ public class ForecastRetriever implements Printable
         jsonObject = new JSONObject(resp).getJSONObject("properties");
         JSONArray periods = jsonObject.getJSONArray("periods");
         for (int i = 0; i < periods.length(); i++) {
-            JSONObject jobj = periods.getJSONObject(i);
-            sb.append(jobj.getString("name")).append(" : ")
-                    .append(jobj.getString("shortForecast")).append("\n");
+            JSONObject obj = periods.getJSONObject(i);
+            sb.append(obj.getString("name")).append(" : ")
+                    .append(obj.getString("shortForecast")).append("\n");
         }
         lastForecast = sb.toString();
         return sb.toString();
@@ -35,6 +35,7 @@ public class ForecastRetriever implements Printable
 
     private String getQuery(String url) throws IOException, InterruptedException {
         // Create an HttpClient
+        HttpResponse<String> response;
         HttpClient client = HttpClient.newHttpClient();
 
         // Build the HttpRequest
@@ -44,7 +45,8 @@ public class ForecastRetriever implements Printable
                 .build();
 
         // Send the request and get the response
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
         return response.body();
     }
 

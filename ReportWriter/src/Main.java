@@ -1,5 +1,3 @@
-import org.json.JSONException;
-import java.io.IOException;
 import java.util.Scanner;
 
 // Lynchburg, VA lat, long (37.414349, -79.143204)
@@ -16,17 +14,13 @@ public class Main {
                 String url = "https://api.weather.gov/points/" + lat+ "," + lng;
                 String resp = fr.getForecast(url);
                 System.out.println(resp);
-                Printable printable = fr;
+                Printable printable = fr; // a way to restrict access
                 PdfGenerator pw = new PdfGenerator();
                 pw.createPdf(printable.getFileName(), printable.getText());
                 System.out.print("Enter forecast location latitude (0 to quit): ");
                 lat = s.nextDouble();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
